@@ -11,10 +11,6 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   end
 
-  def show
-  	@user = User.find(params[:id])	
-  end
-
   def create
   	@user = User.new(params[:user])
   	if @user.save
@@ -48,14 +44,12 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  def show
+    @user = User.find(params[:id])  
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in." unless  signed_in?  
-      end
-    end
+  private
         
     def correct_user
       @user = User.find(params[:id])
