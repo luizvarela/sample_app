@@ -6,6 +6,13 @@ gem 'bootstrap-sass', '2.0.4'
 #encrypt password
 gem 'bcrypt-ruby', '3.0.1'
 
+#create fake users for tests
+gem 'faker', '1.0.1'
+
+#add pagination
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
